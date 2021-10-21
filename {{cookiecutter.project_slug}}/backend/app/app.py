@@ -17,7 +17,7 @@ def initialize():
 
 
 def create_app(init_container) -> FastAPI:
-    app = FastAPI(root_poath=f"/api/{init_container.config.api_version()}")
+    app = FastAPI(root_poath="/api/v1")
     app.include_router(users.router, prefix="/users")
     app.include_router(health.router, prefix="/status")
 
@@ -43,5 +43,7 @@ async def shutdown_event():
 
 @app.get("/", include_in_schema=False)
 def index():
-    logger.debug("Project: {{ cookiecutter.project_name }}")
-    return {"project": "{{ cookiecutter.project_name }}"}
+    project_name = "{{ cookiecutter.project_name }}"
+    applictaion_version = "{{ cookiecutter.application_version }}"
+    logger.debug(f"Project: {project_name} - Version: {applictaion_version}")
+    return {"project": project_name, "version": applictaion_version}

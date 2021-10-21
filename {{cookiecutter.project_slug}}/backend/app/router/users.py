@@ -10,7 +10,7 @@ from containers.application import Application
 router = APIRouter()
 
 
-@router.get("/me")
+@router.get("/me", include_in_schema=False)
 @inject
 async def read_me(
     logger: logging = Depends(Provide[Application.core.logger]),

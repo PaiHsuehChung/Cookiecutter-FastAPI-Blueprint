@@ -11,33 +11,27 @@ cookiecutter FastAPI-Blueprint
 ```
 - Step 2: Change to project directory
 ```
-cd <Project Name>
+cd <Project Name>/backend
 ```
-- Step 3: Initalize git repository
+- Step 3: [Optional] Initalize git repository
 ```
 git init
 ```
-- Step 4: Install python packages
+- Step 4: Run scripts
 ```
-poetry install
+./scripts/dev_build.sh
 ```
-- Step 5: Install pre-commit hooks
+- Step 5: Building images and run images up
 ```
-poetry run pre-commit install
+# Check root endpoint
+curl 127.0.0.1:{{ cookiecutter.application_port }}
+# Check get me endpoint
+curl 127.0.0.1:{{ cookiecutter.application_port }}/users/me 
+# Check healthy check endpoint
+curl 127.0.0.1:{{ cookiecutter.application_port }}/status/health
 ```
-- Step 6: Add files to stage and commit
-```
-# Add files and commit
+- Step 6: Now you are totally create your own develop workspace, enjoy your project!!
 
-git add .
-git commit -m "First commit"
-```
-- Step 7: Run pre-commit hooks
-```
-poetry run pre-commit run --all-files
-```
-
-- Step 8:  Enjoy your project
 
 
 ## Python Version

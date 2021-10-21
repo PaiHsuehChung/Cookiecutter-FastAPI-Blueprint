@@ -2,9 +2,9 @@ version: "3.8"
 services:
   backend: 
     container_name: backend
-    image: demo-backend-dev:latest
-    # volumes:
-    #   - ../backend/:/home/app/app
+    image: {{ cookiecutter.docker_image_slug }}/backend-dev:latest
+    volumes:
+      - ../backend/:/home/app/app
     env_file: 
       - ../backend/env/dev.env
     restart: unless-stopped

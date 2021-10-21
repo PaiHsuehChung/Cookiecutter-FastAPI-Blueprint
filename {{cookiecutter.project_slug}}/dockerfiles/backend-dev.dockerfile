@@ -22,4 +22,4 @@ COPY . $APP_HOME
 RUN chown -R $USER:$USER $APP_HOME
 USER $USER
 
-# EXPOSE {{ cookiecutter.application_port }}
+EXPOSE {{ cookiecutter.application_port }}
