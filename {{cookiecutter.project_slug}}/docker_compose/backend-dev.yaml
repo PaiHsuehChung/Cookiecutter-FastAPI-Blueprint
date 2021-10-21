@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  backend: 
+    container_name: backend
+    image: demo-backend-dev:latest
+    # volumes:
+    #   - ../backend/:/home/app/app
+    env_file: 
+      - ../backend/env/dev.env
+    restart: unless-stopped
+    expose:
+      - 5000
+    ports:
+      - 5000:5000
+    command: uvicorn app.app:app --host=0.0.0.0 --port=5000 --log-level=debug --reload

@@ -1,0 +1,11 @@
+# Pytest
+.pytest_cache/
+
+# Pycache
+__pycache__/
+
+# Pyenv
+.python-version
+
+# Production Environment
+env/prod.env
